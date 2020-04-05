@@ -1,14 +1,20 @@
 package com.example.springboot;
 
-import java.util.Arrays;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import java.util.Arrays;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "com")
+@EnableJpaRepositories("com.repository")
+@EntityScan("com.entity")
 public class Application {
 
     public static void main(String[] args) {
@@ -28,5 +34,4 @@ public class Application {
             }
         };
     }
-
 }
